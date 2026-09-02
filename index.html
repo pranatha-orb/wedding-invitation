@@ -1,0 +1,317 @@
+<!doctype html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <meta name="theme-color" content="#29372d" />
+    <meta name="description" content="Undangan pernikahan Stefani Ayu Ardiny & Pranatha Widya P" />
+    <title>Stefani & Pranatha — Undangan Pernikahan</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600&family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500;1,600&display=swap" rel="stylesheet" />
+    <style>
+      :root { --paper:#f4f0e7; --paper-deep:#e9e1d2; --ink:#263129; --moss:#526052; --stone:#706755; --clay:#9b755f; --line:rgba(56,65,53,.18); --white:#fffdf8; }
+      * { box-sizing:border-box; }
+      html { scroll-behavior:smooth; background:#28372e; }
+      body { margin:0; color:var(--ink); background:var(--paper); font:400 16px/1.6 "DM Sans",sans-serif; }
+      body.is-locked { overflow:hidden; }
+      button, input, select, textarea { font:inherit; }
+      button, a { -webkit-tap-highlight-color:transparent; }
+      button { cursor:pointer; }
+      img { display:block; max-width:100%; }
+      .shell { width:min(100%, 520px); margin:0 auto; overflow:hidden; background:var(--paper); box-shadow:0 0 50px rgba(0,0,0,.22); }
+      .serif { font-family:"Playfair Display", Georgia, serif; }
+      .eyebrow { margin:0; color:var(--moss); font-size:.66rem; letter-spacing:.23em; line-height:1.4; text-transform:uppercase; }
+      .section { position:relative; padding:78px 24px; }
+      .section-title { margin:10px 0 0; font:500 clamp(2rem,8vw,2.7rem)/1.04 "Playfair Display", Georgia, serif; letter-spacing:-.035em; }
+      .section-intro { max-width:26rem; margin:16px auto 0; color:#596057; font-size:.94rem; }
+      .ornament { display:flex; align-items:center; justify-content:center; gap:10px; margin:20px auto 0; color:var(--clay); }
+      .ornament:before,.ornament:after { content:""; width:42px; height:1px; background:currentColor; opacity:.48; }
+      .ornament span { font-size:1.1rem; line-height:1; }
+
+      /* Opening cover */
+      .cover { position:fixed; z-index:20; inset:0; display:grid; place-items:center; width:100%; background:#242f28; transition:opacity .65s ease, visibility .65s ease; }
+      .cover.is-open { opacity:0; visibility:hidden; pointer-events:none; }
+      .cover-inner { position:relative; width:min(100%,520px); height:100%; min-height:640px; overflow:hidden; color:#fffdf8; text-align:center; background:#202c25; }
+      .cover-photo { position:absolute; inset:0; width:100%; height:100%; object-fit:cover; object-position:center; filter:saturate(.74) contrast(.94); transform:scale(1.03); }
+      .cover-shade { position:absolute; inset:0; background:linear-gradient(180deg,rgba(20,26,22,.66) 0%,rgba(25,31,24,.12) 40%,rgba(20,27,22,.86) 100%); }
+      .cover-pattern { position:absolute; inset:16px; border:1px solid rgba(255,250,237,.45); pointer-events:none; }
+      .cover-pattern:before,.cover-pattern:after { content:""; position:absolute; width:36px; height:36px; border-color:#dfc9a9; border-style:solid; opacity:.72; }
+      .cover-pattern:before { top:-1px; left:-1px; border-width:1px 0 0 1px; } .cover-pattern:after { right:-1px; bottom:-1px; border-width:0 1px 1px 0; }
+      .cover-copy { position:absolute; z-index:1; inset:0; display:flex; flex-direction:column; align-items:center; justify-content:flex-end; padding:76px 28px calc(40px + env(safe-area-inset-bottom)); }
+      .cover-copy .eyebrow { color:#e9d7ba; }
+      .cover-names { margin:13px 0 6px; font:500 clamp(2.7rem,12vw,4rem)/.94 "Playfair Display",Georgia,serif; letter-spacing:-.07em; text-shadow:0 2px 18px rgba(0,0,0,.18); }
+      .cover-date { margin:10px 0 28px; color:#f6eddf; font-size:.78rem; letter-spacing:.16em; text-transform:uppercase; }
+      .guest-card { width:100%; max-width:330px; padding:15px 18px; border-top:1px solid rgba(253,248,235,.43); border-bottom:1px solid rgba(253,248,235,.43); color:#fffaf0; }
+      .guest-card small { display:block; color:#ded3c3; font-size:.63rem; letter-spacing:.16em; text-transform:uppercase; }
+      .guest-card strong { display:block; margin-top:3px; font:500 1.15rem/1.3 "Playfair Display",Georgia,serif; }
+      .cover-button { display:inline-flex; align-items:center; justify-content:center; gap:10px; min-height:52px; width:100%; max-width:330px; margin-top:24px; border:1px solid #e9d7ba; border-radius:0; color:#29372d; background:#f5ecdd; font-size:.75rem; font-weight:600; letter-spacing:.15em; text-transform:uppercase; box-shadow:0 10px 24px rgba(0,0,0,.16); }
+      .cover-button svg { width:18px; height:18px; }
+
+      /* Hero */
+      .hero { position:relative; min-height:100svh; color:#fffaf0; background:#273229; }
+      .hero-photo { position:absolute; inset:0; width:100%; height:100%; object-fit:cover; object-position:51% center; filter:saturate(.72) contrast(.94); }
+      .hero:after { content:""; position:absolute; inset:0; background:linear-gradient(180deg,rgba(23,29,25,.45),rgba(23,29,25,.12) 36%,rgba(22,30,25,.86) 100%); }
+      .hero-content { position:relative; z-index:1; display:flex; min-height:100svh; flex-direction:column; align-items:center; justify-content:flex-end; padding:90px 30px 92px; text-align:center; }
+      .hero .eyebrow { color:#dfcda9; }
+      .hero h1 { margin:10px 0 0; font:500 clamp(3rem,13vw,4.5rem)/.9 "Playfair Display",Georgia,serif; letter-spacing:-.075em; }
+      .hero h1 span { display:block; font-style:italic; }
+      .hero .ornament { margin-top:19px; color:#e7d5b8; } .hero .ornament:before,.hero .ornament:after { opacity:.63; }
+      .scroll-cue { position:absolute; z-index:1; bottom:25px; display:grid; place-items:center; color:#e4d3b6; font-size:.62rem; letter-spacing:.13em; text-transform:uppercase; }
+      .scroll-cue:after { content:""; width:1px; height:28px; margin-top:8px; background:currentColor; animation:fall 1.8s ease-in-out infinite; transform-origin:top; }
+      @keyframes fall { 50% { transform:scaleY(.38); opacity:.4; } }
+
+      .quote { padding:72px 30px; color:#2c392f; text-align:center; background:var(--paper-deep); }
+      .quote-mark { display:block; height:18px; color:var(--clay); font:500 3.8rem/.7 "Playfair Display",serif; }
+      .quote p { max-width:370px; margin:19px auto 14px; font:500 1.35rem/1.5 "Playfair Display",Georgia,serif; }
+      .quote cite { color:var(--moss); font-size:.7rem; font-style:normal; letter-spacing:.15em; text-transform:uppercase; }
+
+      /* Couple */
+      .couple { text-align:center; background:#f8f5ee; }
+      .couple-grid { display:grid; grid-template-columns:1fr 1fr; gap:14px; align-items:end; margin-top:38px; }
+      .person { min-width:0; }
+      .person:nth-child(2) { margin-bottom:42px; }
+      .portrait { aspect-ratio:3/4.25; overflow:hidden; border-radius:140px 140px 4px 4px; background:#d8d1c3; }
+      .person:nth-child(2) .portrait { border-radius:4px 4px 140px 140px; }
+      .portrait img { width:100%; height:100%; object-fit:cover; }
+      .person:first-child .portrait img { object-position:67% center; }
+      .person:nth-child(2) .portrait img { object-position:48% center; }
+      .person h3 { margin:15px 0 2px; font:500 1.45rem/1.1 "Playfair Display",Georgia,serif; letter-spacing:-.035em; }
+      .person p { margin:0; color:var(--moss); font-size:.72rem; }
+      .parents { margin:38px auto 0; padding:24px 14px; border-top:1px solid var(--line); border-bottom:1px solid var(--line); }
+      .parents h3 { margin:0 0 15px; color:var(--moss); font-size:.65rem; font-weight:600; letter-spacing:.16em; text-transform:uppercase; }
+      .parents p { margin:9px 0; font-size:.88rem; line-height:1.45; }
+
+      /* Event */
+      .event { color:#f7f1e6; text-align:center; background:#334238; }
+      .event .eyebrow { color:#d9c6a4; } .event .section-title { color:#fffaf0; }
+      .event .section-intro { color:#d9d8cc; }
+      .event-date { margin:16px 0 -4px; color:#e5cfae; font-size:.72rem; font-weight:600; letter-spacing:.16em; text-transform:uppercase; }
+      .countdown { display:grid; grid-template-columns:repeat(4,1fr); gap:7px; margin:34px auto 14px; max-width:410px; }
+      .time-box { padding:14px 2px 11px; border:1px solid rgba(235,224,204,.28); background:rgba(255,255,255,.045); }
+      .time-box strong { display:block; color:#f4e9d7; font:500 1.62rem/1 "Playfair Display",Georgia,serif; }
+      .time-box span { display:block; margin-top:7px; color:#d6d3c5; font-size:.53rem; letter-spacing:.1em; text-transform:uppercase; }
+      .date-pending { min-height:20px; margin:0; color:#cecbbd; font-size:.72rem; }
+      .event-list { display:grid; gap:14px; margin-top:36px; text-align:left; }
+      .event-card { position:relative; padding:22px 17px 19px 67px; border:1px solid rgba(235,224,204,.24); background:rgba(255,255,255,.055); }
+      .event-icon { position:absolute; top:22px; left:18px; width:33px; height:33px; color:#e2caa6; }
+      .event-card h3 { margin:0; color:#fffaf0; font:500 1.23rem/1.2 "Playfair Display",Georgia,serif; }
+      .event-card .time { margin:5px 0 10px; color:#d9c6a4; font-size:.71rem; font-weight:600; letter-spacing:.1em; text-transform:uppercase; }
+      .event-card address { margin:0; color:#e6e1d6; font-size:.83rem; font-style:normal; line-height:1.45; }
+      .map-link { display:inline-flex; min-height:44px; align-items:center; gap:7px; margin-top:15px; padding:0 12px; border-bottom:1px solid #ddc49f; color:#f7ebd8; font-size:.68rem; font-weight:600; letter-spacing:.08em; text-decoration:none; text-transform:uppercase; }
+      .map-link svg { width:15px; height:15px; }
+
+      /* Story */
+      .story { background:#f8f5ed; text-align:center; }
+      .story-photo { position:relative; aspect-ratio:4/5.2; margin:34px -24px 0; overflow:hidden; }
+      .story-photo img { width:100%; height:100%; object-fit:cover; object-position:50% center; filter:saturate(.74); }
+      .story-note { position:absolute; right:18px; bottom:18px; max-width:220px; padding:16px 18px; color:#394238; text-align:left; background:rgba(250,247,238,.92); box-shadow:0 5px 20px rgba(44,42,34,.11); }
+      .story-note p { margin:0; font:500 1rem/1.35 "Playfair Display",Georgia,serif; }
+      .story-timeline { margin:0; padding:37px 7px 0; list-style:none; text-align:left; }
+      .story-timeline li { position:relative; padding:0 0 31px 39px; border-left:1px solid #b9b4a8; }
+      .story-timeline li:last-child { padding-bottom:0; border-color:transparent; }
+      .story-timeline li:before { content:""; position:absolute; top:2px; left:-5px; width:9px; height:9px; border:2px solid var(--paper); border-radius:50%; background:var(--clay); }
+      .story-timeline small { display:block; color:var(--clay); font-size:.62rem; font-weight:600; letter-spacing:.15em; text-transform:uppercase; }
+      .story-timeline h3 { margin:5px 0 4px; font:500 1.25rem/1.2 "Playfair Display",Georgia,serif; }
+      .story-timeline p { margin:0; color:#5f665e; font-size:.84rem; line-height:1.55; }
+
+      /* Gallery */
+      .gallery { padding-bottom:86px; background:var(--paper-deep); text-align:center; }
+      .masonry { display:grid; grid-template-columns:1fr 1fr; grid-auto-flow:dense; gap:9px; margin-top:35px; }
+      .gallery-item { min-height:0; padding:0; overflow:hidden; border:0; background:#aaa; }
+      .gallery-item:first-child { grid-row:span 2; } .gallery-item:nth-child(4) { grid-column:span 2; }
+      .gallery-item img { width:100%; height:100%; aspect-ratio:1/1.24; object-fit:cover; transition:transform .45s ease; }
+      .gallery-item:first-child img { aspect-ratio:1/2.56; object-position:63% center; }.gallery-item:nth-child(4) img { aspect-ratio:2.14/1; object-position:center 43%; }
+      .gallery-item:active img { transform:scale(1.04); }
+
+      /* RSVP */
+      .rsvp { text-align:center; background:#f8f5ed; }
+      .rsvp-form { margin-top:32px; text-align:left; }
+      .field { margin-bottom:17px; }
+      label { display:block; margin-bottom:7px; color:#4d584d; font-size:.69rem; font-weight:600; letter-spacing:.08em; text-transform:uppercase; }
+      input,select,textarea { width:100%; min-height:51px; padding:13px 14px; border:1px solid #cfc8b8; border-radius:0; outline:none; color:var(--ink); background:#fffdf8; font-size:16px; transition:border .2s, box-shadow .2s; }
+      textarea { min-height:112px; resize:vertical; }
+      input:focus,select:focus,textarea:focus { border-color:var(--moss); box-shadow:0 0 0 3px rgba(82,96,82,.12); }
+      .form-grid { display:grid; grid-template-columns:1fr 1fr; gap:12px; }
+      fieldset { min-width:0; margin:0 0 17px; padding:0; border:0; }
+      legend { margin-bottom:7px; color:#4d584d; font-size:.69rem; font-weight:600; letter-spacing:.08em; text-transform:uppercase; }
+      .family-attendance { padding:14px; border:1px solid #cfc8b8; background:#fffdf8; }
+      .family-attendance p { margin:0 0 12px; color:#5c665d; font-size:.81rem; line-height:1.45; }
+      .member-options { display:grid; gap:8px; }
+      .member-option { display:flex; min-height:47px; align-items:center; gap:11px; padding:9px 10px; border:1px solid #ded8cb; color:#364239; background:#faf8f2; font-size:.9rem; text-transform:none; letter-spacing:0; cursor:pointer; }
+      .member-option input { width:20px; min-width:20px; min-height:20px; margin:0; accent-color:#526052; }
+      .submit { display:flex; align-items:center; justify-content:center; width:100%; min-height:53px; margin-top:7px; border:0; color:#fffaf0; background:#35453a; font-size:.72rem; font-weight:600; letter-spacing:.14em; text-transform:uppercase; }
+      .submit:active { transform:translateY(1px); background:#26362c; }
+      .rsvp-result { display:none; margin:17px 0 0; padding:14px; color:#405243; border:1px solid #b9c4b8; background:#e9eee6; text-align:center; font-size:.86rem; }
+      .wishes { margin-top:53px; padding-top:42px; border-top:1px solid var(--line); text-align:left; }
+      .wishes-head { display:flex; align-items:end; justify-content:space-between; gap:16px; }
+      .wishes h3 { margin:0; font:500 1.7rem/1.1 "Playfair Display",Georgia,serif; }
+      .wishes-count { margin:0; color:var(--moss); font-size:.72rem; white-space:nowrap; }
+      .wish-list { display:grid; gap:11px; margin-top:19px; }
+      .wish { padding:15px; border-left:2px solid var(--clay); background:#f1ece1; }
+      .wish header { display:flex; align-items:center; justify-content:space-between; gap:10px; color:#455246; font-size:.74rem; font-weight:600; }
+      .wish time { color:#818579; font-size:.63rem; font-weight:400; }
+      .wish p { margin:6px 0 0; color:#5d6159; font-size:.82rem; line-height:1.5; }
+      .wish-empty { padding:16px; color:#6d7169; background:#f1ece1; text-align:center; font-size:.82rem; }
+
+      .closing { position:relative; min-height:480px; color:#fffaf0; text-align:center; background:#243129; }
+      .closing img { position:absolute; inset:0; width:100%; height:100%; object-fit:cover; object-position:center 52%; filter:saturate(.62) brightness(.72); }
+      .closing:after { content:""; position:absolute; inset:0; background:rgba(26,34,28,.52); }
+      .closing-copy { position:relative; z-index:1; display:flex; min-height:480px; flex-direction:column; align-items:center; justify-content:center; padding:70px 32px; }
+      .closing-copy p { max-width:310px; margin:0; color:#f1e9dc; font:500 1.35rem/1.5 "Playfair Display",Georgia,serif; }
+      .closing-copy h2 { margin:20px 0 0; font:500 2.45rem/.95 "Playfair Display",Georgia,serif; letter-spacing:-.06em; }
+      .closing-copy small { margin-top:19px; color:#e2d5bf; font-size:.63rem; letter-spacing:.14em; text-transform:uppercase; }
+
+      .bottom-nav { position:fixed; z-index:10; right:0; bottom:0; left:0; display:flex; justify-content:center; padding:0 8px calc(8px + env(safe-area-inset-bottom)); pointer-events:none; }
+      .bottom-nav nav { display:grid; grid-template-columns:repeat(5,1fr); width:min(100%,500px); border:1px solid rgba(255,255,255,.25); border-radius:16px; background:rgba(41,54,45,.91); box-shadow:0 8px 25px rgba(22,27,23,.25); backdrop-filter:blur(14px); pointer-events:auto; }
+      .bottom-nav a { display:grid; min-height:56px; place-items:center; align-content:center; gap:2px; color:#d9d8d0; font-size:.51rem; letter-spacing:.02em; text-decoration:none; }
+      .bottom-nav svg { width:18px; height:18px; stroke:currentColor; stroke-width:1.7; fill:none; } .bottom-nav a.active { color:#f0d6aa; }
+      .music-toggle { position:fixed; z-index:11; top:calc(16px + env(safe-area-inset-top)); left:max(16px, calc(50% - 244px)); display:inline-flex; min-height:42px; align-items:center; gap:8px; padding:0 13px; border:1px solid rgba(255,255,255,.4); border-radius:999px; color:#f8f1e5; background:rgba(39,52,43,.76); box-shadow:0 4px 16px rgba(24,29,25,.16); backdrop-filter:blur(10px); font-size:.64rem; font-weight:600; letter-spacing:.08em; text-transform:uppercase; }
+      .music-toggle .note { display:inline-grid; place-items:center; width:17px; height:17px; color:#f0d3a4; font-size:1rem; line-height:1; }
+      .music-toggle.is-playing .note { animation:note-pulse 1.25s ease-in-out infinite; } .music-toggle[hidden] { display:none; }
+      @keyframes note-pulse { 50% { transform:translateY(-2px) rotate(-8deg); } }
+      .song-info { display:inline-flex; align-items:center; gap:7px; margin-top:19px; padding:7px 0; border-bottom:1px solid rgba(230,213,187,.6); color:#e7d6ba; font-size:.63rem; letter-spacing:.07em; text-decoration:none; }
+      .credits { display:grid; gap:3px; margin-top:17px; color:#e2d5bf; font-size:.6rem; letter-spacing:.1em; text-transform:uppercase; }
+      .credits a { color:#e2d5bf; text-decoration:none; }
+
+      dialog { width:min(calc(100% - 32px),520px); max-width:520px; padding:0; border:0; background:transparent; }
+      dialog::backdrop { background:rgba(20,25,21,.88); backdrop-filter:blur(3px); }
+      .lightbox-image { width:100%; max-height:82svh; object-fit:contain; }
+      .lightbox-close { position:absolute; top:10px; right:10px; display:grid; width:40px; height:40px; place-items:center; border:0; border-radius:50%; color:#fff; background:rgba(0,0,0,.48); font-size:1.5rem; }
+      .toast { position:fixed; z-index:30; right:20px; bottom:87px; left:20px; max-width:480px; margin:auto; padding:13px 16px; color:#fffdf7; background:#334238; box-shadow:0 8px 22px rgba(0,0,0,.21); font-size:.82rem; text-align:center; transform:translateY(20px); opacity:0; pointer-events:none; transition:.25s ease; }
+      .toast.show { transform:translateY(0); opacity:1; }
+      @media (min-width:600px) { body { padding:0; } .bottom-nav { right:auto; left:50%; width:520px; transform:translateX(-50%); } .cover-inner { box-shadow:0 0 70px rgba(0,0,0,.35); } }
+      @media (hover:hover) { .gallery-item:hover img { transform:scale(1.04); } .cover-button:hover { background:#fffaf0; } .map-link:hover { color:#fff; } }
+    </style>
+  </head>
+  <body class="is-locked">
+    <section class="cover" id="cover" aria-label="Pembuka undangan">
+      <div class="cover-inner">
+        <img class="cover-photo" src="Asset-image/Moarpictures-01416.jpg" alt="Stefani dan Pranatha di candi" />
+        <div class="cover-shade"></div><div class="cover-pattern"></div>
+        <div class="cover-copy">
+          <p class="eyebrow">The wedding of</p>
+          <h1 class="cover-names">Stefani <i>&amp;</i><br />Pranatha</h1>
+          <p class="cover-date">Sabtu, 17 Oktober 2026</p>
+          <div class="guest-card"><small>Kepada Yth.</small><strong id="coverGuest">Bapak/Ibu/Saudara/i</strong></div>
+          <button class="cover-button" id="openInvitation" type="button"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M3 5h18v14H3z" opacity=".25"/><path d="M3 6l9 7 9-7" fill="none" stroke="currentColor" stroke-width="1.6"/></svg>Buka Undangan</button>
+        </div>
+      </div>
+    </section>
+
+    <main class="shell" id="invitation">
+      <section class="hero" id="home">
+        <img class="hero-photo" src="Asset-image/Moarpictures-01332.jpg" alt="Potret Stefani dan Pranatha dengan payung tradisional Jawa" />
+        <div class="hero-content">
+          <p class="eyebrow">The wedding of</p>
+          <h1>Stefani <span>&amp; Pranatha</span></h1>
+          <div class="ornament"><span>❦</span></div>
+          <p class="cover-date">Sabtu, 17 Oktober 2026</p>
+        </div>
+        <div class="scroll-cue">Gulir</div>
+      </section>
+
+      <section class="quote">
+        <span class="quote-mark">“</span>
+        <p>Demikianlah mereka bukan lagi dua, melainkan satu. Karena itu, apa yang telah dipersatukan Allah, tidak boleh diceraikan manusia.</p>
+        <cite>Matius 19:6</cite>
+      </section>
+
+      <section class="section couple" id="mempelai">
+        <p class="eyebrow">Mempelai</p><h2 class="section-title">Dua hati,<br />satu perjalanan</h2><div class="ornament"><span>❦</span></div>
+        <div class="couple-grid">
+          <article class="person"><div class="portrait"><img src="Asset-image/Moarpictures-01453.jpg" alt="Pranatha Widya P" /></div><h3>Pranatha<br />Widya P</h3><p>Putra dari</p></article>
+          <article class="person"><div class="portrait"><img src="Asset-image/Moarpictures-01596.jpg" alt="Stefani Ayu Ardiny" /></div><h3>Stefani Ayu<br />Ardiny</h3><p>Putri dari</p></article>
+        </div>
+        <div class="parents">
+          <h3>Dengan hormat</h3>
+          <p><b>Pranatha</b>, putra dari<br /><b>Bapak Dwi Atmaja</b> dan <b>Ibu Ari</b></p>
+          <p><b>Stefani</b>, putri dari<br /><b>Bapak Bambang Sigit</b> dan mendiang <b>Ibu Suci Yuni</b></p>
+        </div>
+      </section>
+
+      <section class="section event" id="acara">
+        <p class="eyebrow">Rangkaian acara</p><h2 class="section-title">Hari yang kami nantikan</h2><p class="event-date">Sabtu, 17 Oktober 2026</p><p class="section-intro">Dengan segala kerendahan hati, kami mengundang Anda untuk menjadi bagian dari hari bahagia kami.</p>
+        <div class="countdown" aria-label="Hitung mundur acara"><div class="time-box"><strong data-time="days">—</strong><span>Hari</span></div><div class="time-box"><strong data-time="hours">—</strong><span>Jam</span></div><div class="time-box"><strong data-time="minutes">—</strong><span>Menit</span></div><div class="time-box"><strong data-time="seconds">—</strong><span>Detik</span></div></div>
+        <p class="date-pending" id="countdownNote">Tanggal perayaan akan segera diinformasikan.</p>
+        <div class="event-list">
+          <article class="event-card"><svg class="event-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3" aria-hidden="true"><path d="M4 20V7l8-4 8 4v13M2 20h20M8 20v-6h8v6M9 9h.01M15 9h.01"/></svg><h3>Pemberkatan</h3><p class="time">Pukul 09.00 WIB</p><address>Paroki Salib Suci Tropodo</address><a class="map-link" href="https://maps.app.goo.gl/4sVjn4rngmQ9YT7N8" target="_blank" rel="noopener">Petunjuk lokasi <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 21s7-5.3 7-12a7 7 0 10-14 0c0 6.7 7 12 7 12z"/><circle cx="12" cy="9" r="2"/></svg></a></article>
+          <article class="event-card"><svg class="event-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3" aria-hidden="true"><path d="M3 20h18M5 20V9l7-5 7 5v11M9 20v-5h6v5M8 10h.01M16 10h.01"/></svg><h3>Resepsi</h3><p class="time">Pukul 13.00 WIB</p><address>Premier Place Hotel<br />Surabaya Airport</address><a class="map-link" href="https://maps.app.goo.gl/vz3kcz7gChxPUt6F9" target="_blank" rel="noopener">Petunjuk lokasi <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 21s7-5.3 7-12a7 7 0 10-14 0c0 6.7 7 12 7 12z"/><circle cx="12" cy="9" r="2"/></svg></a></article>
+        </div>
+      </section>
+
+      <section class="section story" id="kisah">
+        <p class="eyebrow">Our love story</p><h2 class="section-title">Satu perjalanan,<br />selamanya</h2><div class="ornament"><span>❦</span></div>
+        <div class="story-photo"><img src="Asset-image/Moarpictures-01575.jpg" alt="Stefani dan Pranatha berjalan bersama" /><div class="story-note"><p>“Cinta tidak memiliki akhir, ia hanya bertumbuh menjadi rumah.”</p></div></div>
+        <ol class="story-timeline">
+          <li><small>Awal cerita</small><h3>Sebuah perjumpaan</h3><p>Setiap kisah indah dimulai dengan pertemuan yang sederhana, lalu tumbuh dalam doa dan kebersamaan.</p></li>
+          <li><small>Hari-hari yang dilalui</small><h3>Belajar berjalan beriringan</h3><p>Dalam setiap langkah, kami menemukan bahwa pulang selalu lebih indah saat dijalani berdua.</p></li>
+          <li><small>Hari ini & seterusnya</small><h3>Menuju satu janji</h3><p>Kini kami memilih untuk saling menggenggam, menuliskan bab baru dalam satu perjalanan hidup.</p></li>
+        </ol>
+      </section>
+
+      <section class="section gallery" id="galeri">
+        <p class="eyebrow">Our moments</p><h2 class="section-title">Dalam bingkai<br />kenangan</h2><div class="ornament"><span>❦</span></div>
+        <div class="masonry" aria-label="Galeri foto Stefani dan Pranatha">
+          <button class="gallery-item" type="button" data-image="Asset-image/Moarpictures-01416.jpg" aria-label="Buka foto galeri 1"><img src="Asset-image/Moarpictures-01416.jpg" loading="lazy" alt="Stefani dan Pranatha di kompleks candi" /></button>
+          <button class="gallery-item" type="button" data-image="Asset-image/Moarpictures-01431.jpg" aria-label="Buka foto galeri 2"><img src="Asset-image/Moarpictures-01431.jpg" loading="lazy" alt="Stefani dan Pranatha di tangga candi" /></button>
+          <button class="gallery-item" type="button" data-image="Asset-image/Moarpictures-01453.jpg" aria-label="Buka foto galeri 3"><img src="Asset-image/Moarpictures-01453.jpg" loading="lazy" alt="Potret dekat Stefani dan Pranatha" /></button>
+          <button class="gallery-item" type="button" data-image="Asset-image/Moarpictures-01719.jpg" aria-label="Buka foto galeri 4"><img src="Asset-image/Moarpictures-01719.jpg" loading="lazy" alt="Stefani dan Pranatha berjalan bersama" /></button>
+          <button class="gallery-item" type="button" data-image="Asset-image/Moarpictures-01575.jpg" aria-label="Buka foto galeri 5"><img src="Asset-image/Moarpictures-01575.jpg" loading="lazy" alt="Stefani dan Pranatha dengan payung tradisional" /></button>
+          <button class="gallery-item" type="button" data-image="Asset-image/Moarpictures-01596.jpg" aria-label="Buka foto galeri 6"><img src="Asset-image/Moarpictures-01596.jpg" loading="lazy" alt="Stefani dan Pranatha di candi" /></button>
+        </div>
+      </section>
+
+      <section class="section rsvp" id="rsvp">
+        <p class="eyebrow">RSVP</p><h2 class="section-title">Kehadiran Anda<br />berarti bagi kami</h2><p class="section-intro">Mohon kesediaannya untuk mengonfirmasi kehadiran.</p><div class="ornament"><span>❦</span></div>
+        <form class="rsvp-form" id="rsvpForm">
+          <div class="field"><label for="guestName">Nama</label><input id="guestName" name="name" type="text" autocomplete="name" required placeholder="Nama Anda" /></div>
+          <fieldset id="familyAttendance" hidden><legend>Konfirmasi anggota keluarga</legend><div class="family-attendance"><p>Centang anggota keluarga yang akan hadir.</p><div class="member-options" id="memberOptions"></div></div></fieldset>
+          <div class="field"><label for="message">Ucapan & doa</label><textarea id="message" name="message" required maxlength="500" placeholder="Tuliskan ucapan terbaik Anda"></textarea></div>
+          <button class="submit" type="submit">Konfirmasi via WhatsApp</button><p class="rsvp-result" id="rsvpResult" role="status"></p>
+        </form>
+        <div class="wishes"><div class="wishes-head"><h3>Ucapan terbaik</h3><p class="wishes-count" id="wishCount">0 ucapan</p></div><div class="wish-list" id="wishList"><div class="wish-empty">Jadilah yang pertama mengirimkan ucapan.</div></div></div>
+      </section>
+
+      <footer class="closing"><img src="Asset-image/Moarpictures-01719.jpg" alt="Stefani dan Pranatha" loading="lazy" /><div class="closing-copy"><p>Merupakan kebahagiaan bagi kami apabila Bapak/Ibu/Saudara/i berkenan hadir dan memberikan doa restu.</p><h2>Stefani<br /><i>&amp;</i> Pranatha</h2><small>Terima kasih</small><div class="credits"><span>Web builder by Pranatha</span><a href="https://youtu.be/mKHfq_HIEBU?si=DlFQVvGU0L780H6u" target="_blank" rel="noopener">Music by Yura Yunita — Duhai Sayang</a></div></div></footer>
+    </main>
+
+    <div class="bottom-nav"><nav aria-label="Navigasi undangan"><a href="#home" class="active" data-nav="home"><svg viewBox="0 0 24 24"><path d="M3 11.5L12 4l9 7.5V21H3zM9 21v-6h6v6"/></svg><span>Beranda</span></a><a href="#mempelai" data-nav="mempelai"><svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4 21c.5-4.3 3.1-7 8-7s7.5 2.7 8 7"/></svg><span>Mempelai</span></a><a href="#acara" data-nav="acara"><svg viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="16" rx="1"/><path d="M7 3v4M17 3v4M3 10h18M8 14h.01M12 14h.01M16 14h.01M8 18h.01M12 18h.01"/></svg><span>Acara</span></a><a href="#galeri" data-nav="galeri"><svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="16" rx="2"/><circle cx="8.5" cy="9" r="1.5"/><path d="M3 17l5-5 4 4 3-3 6 5"/></svg><span>Galeri</span></a><a href="#rsvp" data-nav="rsvp"><svg viewBox="0 0 24 24"><path d="M20 15a4 4 0 01-4 4H9l-5 3v-7a4 4 0 01-1-3V7a4 4 0 014-4h9a4 4 0 014 4z"/></svg><span>RSVP</span></a></nav></div>
+    <audio id="bgMusic" loop preload="metadata"><source src="Asset-lagu/Yura%20Yunita%20-%20Duhai%20Sayang%20%28Official%20Music%20Video%29.mp3" type="audio/mpeg" /></audio>
+    <button class="music-toggle" id="musicToggle" type="button" hidden aria-pressed="false" aria-label="Nyalakan musik latar"><span class="note">♪</span><span id="musicLabel">Musik</span></button>
+    <dialog id="lightbox"><button class="lightbox-close" type="button" aria-label="Tutup foto">×</button><img class="lightbox-image" src="" alt="Foto galeri diperbesar" /></dialog><div class="toast" id="toast" role="status"></div>
+
+    <script>
+      const WEDDING_DATE = '2026-10-17T09:00:00+07:00';
+      const urlParams = new URLSearchParams(window.location.search);
+      const getGuestFromUrl = () => urlParams.get('to')?.trim();
+      const guest = getGuestFromUrl();
+      const familyMembers = (urlParams.get('family') || '').split('|').map(name => name.trim()).filter(Boolean);
+      const guestName = document.getElementById('guestName');
+      if (guest) { document.getElementById('coverGuest').textContent = guest; guestName.value = guest; }
+
+      const bgMusic = document.getElementById('bgMusic'); const musicToggle = document.getElementById('musicToggle'); const musicLabel = document.getElementById('musicLabel');
+      function setMusicButton(isPlaying) { musicToggle.classList.toggle('is-playing', isPlaying); musicToggle.setAttribute('aria-pressed', String(isPlaying)); musicToggle.setAttribute('aria-label', isPlaying ? 'Matikan musik latar' : 'Nyalakan musik latar'); musicLabel.textContent = isPlaying ? 'Musik on' : 'Musik off'; }
+      async function playMusic() { try { await bgMusic.play(); setMusicButton(true); } catch { setMusicButton(false); showToast('Musik belum dapat diputar. Coba tekan tombol Musik.'); } }
+      document.getElementById('openInvitation').addEventListener('click', () => { document.getElementById('cover').classList.add('is-open'); document.body.classList.remove('is-locked'); musicToggle.hidden = false; playMusic(); });
+      musicToggle.addEventListener('click', () => { if (bgMusic.paused) playMusic(); else { bgMusic.pause(); setMusicButton(false); } }); bgMusic.addEventListener('pause', () => setMusicButton(false)); bgMusic.addEventListener('play', () => setMusicButton(true));
+      const countdown = document.querySelectorAll('[data-time]'); const countdownNote = document.getElementById('countdownNote');
+      function updateCountdown() { if (!WEDDING_DATE) return; const remaining = new Date(WEDDING_DATE).getTime() - Date.now(); if (remaining <= 0) { countdown.forEach(x => x.textContent = '0'); countdownNote.textContent = 'Hari bahagia telah tiba.'; return; } const units = {days:86400000,hours:3600000,minutes:60000,seconds:1000}; Object.entries(units).forEach(([key,value]) => { const amount = key === 'days' ? Math.floor(remaining / value) : Math.floor((remaining % (key === 'hours' ? 86400000 : key === 'minutes' ? 3600000 : 60000)) / value); document.querySelector(`[data-time="${key}"]`).textContent = String(amount).padStart(2,'0'); }); countdownNote.textContent = new Intl.DateTimeFormat('id-ID',{dateStyle:'full',timeStyle:'short',timeZone:'Asia/Jakarta'}).format(new Date(WEDDING_DATE)) + ' WIB'; }
+      if (WEDDING_DATE) { updateCountdown(); setInterval(updateCountdown,1000); }
+
+      const dialog = document.getElementById('lightbox'); const lightboxImage = dialog.querySelector('img');
+      document.querySelectorAll('.gallery-item').forEach(button => button.addEventListener('click', () => { lightboxImage.src = button.dataset.image; dialog.showModal(); }));
+      dialog.querySelector('.lightbox-close').addEventListener('click', () => dialog.close()); dialog.addEventListener('click', (event) => { if (event.target === dialog) dialog.close(); });
+
+      const list = document.getElementById('wishList'), count = document.getElementById('wishCount'); const storageKey = 'stefani-pranatha-wishes';
+      const escapeHTML = text => text.replace(/[&<>"']/g, char => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#039;'}[char]));
+      function renderWishes() { const wishes = JSON.parse(localStorage.getItem(storageKey) || '[]'); count.textContent = `${wishes.length} ucapan`; list.innerHTML = wishes.length ? wishes.slice().reverse().map(w => `<article class="wish"><header><span>${escapeHTML(w.name)}</span><time>${escapeHTML(w.date)}</time></header><p>${escapeHTML(w.message)}</p></article>`).join('') : '<div class="wish-empty">Jadilah yang pertama mengirimkan ucapan.</div>'; }
+      const toast = document.getElementById('toast'); let toastTimer; function showToast(message) { toast.textContent = message; toast.classList.add('show'); clearTimeout(toastTimer); toastTimer = setTimeout(() => toast.classList.remove('show'), 3200); }
+      const familyAttendance = document.getElementById('familyAttendance'); const memberOptions = document.getElementById('memberOptions');
+      if (familyMembers.length) { familyAttendance.hidden = false; memberOptions.innerHTML = familyMembers.map((member,index) => `<label class="member-option"><input type="checkbox" name="familyMember" value="${escapeHTML(member)}" ${index === 0 ? 'checked' : ''}/><span>${escapeHTML(member)}</span></label>`).join(''); }
+      document.getElementById('rsvpForm').addEventListener('submit', event => { event.preventDefault(); const form = new FormData(event.currentTarget); const wish = {name:form.get('name').trim(), message:form.get('message').trim(), date:new Intl.DateTimeFormat('id-ID',{day:'numeric',month:'short',year:'numeric'}).format(new Date())}; const wishes = JSON.parse(localStorage.getItem(storageKey) || '[]'); wishes.push(wish); localStorage.setItem(storageKey,JSON.stringify(wishes)); renderWishes(); const selectedMembers = familyMembers.length ? [...document.querySelectorAll('input[name="familyMember"]:checked')].map(input => input.value) : []; const presence = familyMembers.length ? (selectedMembers.length ? `Hadir (${selectedMembers.length} orang):\n${selectedMembers.map(member => `• ${member}`).join('\n')}` : 'Berhalangan hadir') : 'Hadir (1 orang)'; const whatsAppMessage = `Halo Stefani & Pranatha,\n\nKonfirmasi kehadiran\nKepada: ${wish.name}\n${presence}\n\nUcapan & doa:\n${wish.message}\n\nTerima kasih.`; const whatsappUrl = `https://wa.me/6282131413192?text=${encodeURIComponent(whatsAppMessage)}`; window.open(whatsappUrl, '_blank', 'noopener'); document.getElementById('rsvpResult').textContent = `Terima kasih, ${wish.name}. Pesan konfirmasi WhatsApp telah disiapkan.`; document.getElementById('rsvpResult').style.display = 'block'; event.currentTarget.reset(); if (familyMembers.length) document.querySelector('input[name="familyMember"]').checked = true; if (guest) guestName.value = guest; showToast('Ucapan tersimpan dan WhatsApp dibuka.'); });
+      renderWishes();
+      const navs = document.querySelectorAll('[data-nav]'); const sections = [...navs].map(link => document.getElementById(link.dataset.nav)); const observer = new IntersectionObserver(entries => entries.forEach(entry => { if (entry.isIntersecting) navs.forEach(link => link.classList.toggle('active', link.dataset.nav === entry.target.id)); }), {rootMargin:'-45% 0px -43%', threshold:0}); sections.forEach(section => observer.observe(section));
+    </script>
+  </body>
+</html>
