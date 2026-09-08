@@ -163,6 +163,22 @@
       .wish p { margin:6px 0 0; color:#5d6159; font-size:.82rem; line-height:1.5; }
       .wish-empty { padding:16px; color:#6d7169; background:#f1ece1; text-align:center; font-size:.82rem; }
 
+      /* Wedding gift */
+      .gift { text-align:center; background:#e9e1d2; }
+      .gift .section-intro { color:#5c655b; }
+      .gift-open { display:inline-flex; min-height:52px; align-items:center; justify-content:center; width:100%; margin-top:28px; padding:0 18px; border:1px solid #35453a; color:#fffaf0; background:#35453a; font-size:.71rem; font-weight:600; letter-spacing:.12em; text-transform:uppercase; transition:background .2s,transform .2s; }
+      .gift-open:active { transform:translateY(1px); background:#26362c; }
+      .gift-accounts { display:grid; gap:13px; margin-top:19px; text-align:left; }
+      .gift-accounts[hidden] { display:none; }
+      .gift-account { padding:20px 18px 17px; border:1px solid rgba(56,65,53,.22); background:#fffdf8; box-shadow:0 8px 20px rgba(44,42,34,.06); }
+      .gift-bank-row { display:flex; min-height:30px; align-items:center; gap:10px; }
+      .gift-bank-logo { display:block; width:auto; max-width:104px; height:25px; object-fit:contain; object-position:left center; }
+      .gift-bank { margin:0; color:var(--clay); font-size:.64rem; font-weight:600; letter-spacing:.15em; text-transform:uppercase; }
+      .gift-account h3 { margin:6px 0 2px; color:#344238; font:500 1.26rem/1.2 "Playfair Display",Georgia,serif; letter-spacing:-.03em; }
+      .gift-number { margin:10px 0 14px; color:#28372e; font:600 1.12rem/1 "DM Sans",sans-serif; letter-spacing:.08em; }
+      .gift-copy { display:flex; min-height:44px; align-items:center; justify-content:center; width:100%; border:1px solid #aeb8a9; color:#35453a; background:transparent; font-size:.66rem; font-weight:600; letter-spacing:.1em; text-transform:uppercase; }
+      .gift-copy:active { color:#fffaf0; border-color:#35453a; background:#35453a; }
+
       .closing { position:relative; min-height:480px; color:#fffaf0; text-align:center; background:#243129; }
       .closing img { position:absolute; inset:0; width:100%; height:100%; object-fit:cover; object-position:center 52%; filter:saturate(.62) brightness(.72); }
       .closing:after { content:""; position:absolute; inset:0; background:rgba(26,34,28,.52); }
@@ -280,6 +296,15 @@
         <div class="wishes"><div class="wishes-head"><h3>Ucapan terbaik</h3><p class="wishes-count" id="wishCount">0 ucapan</p></div><div class="wish-list" id="wishList"><div class="wish-empty">Jadilah yang pertama mengirimkan ucapan.</div></div></div>
       </section>
 
+      <section class="section gift" id="hadiah">
+        <p class="eyebrow">Wedding gift</p><h2 class="section-title">Tanda kasih untuk<br />kami berdua</h2><p class="section-intro">Kehadiran dan doa Anda sudah menjadi hadiah terindah. Namun, apabila berkenan memberikan tanda kasih, silakan buka detail berikut.</p><div class="ornament"><span>❦</span></div>
+        <button class="gift-open" id="giftOpen" type="button" aria-expanded="false" aria-controls="giftAccounts">Buka detail hadiah</button>
+        <div class="gift-accounts" id="giftAccounts" hidden>
+          <article class="gift-account"><div class="gift-bank-row"><img class="gift-bank-logo" src="Asset-image/hadiah-bank/Logo%20BCA_Biru.png" alt="BCA" /><p class="gift-bank">BCA</p></div><h3>Stefani Ayu Ardiny</h3><p class="gift-number">6670532851</p><button class="gift-copy" type="button" data-account="6670532851">Salin nomor rekening</button></article>
+          <article class="gift-account"><div class="gift-bank-row"><img class="gift-bank-logo" src="Asset-image/hadiah-bank/Bank_Mandiri_logo_2016.svg.webp" alt="Mandiri" /><p class="gift-bank">Mandiri</p></div><h3>Pranatha Widyapradana</h3><p class="gift-number">1400020762119</p><button class="gift-copy" type="button" data-account="1400020762119">Salin nomor rekening</button></article>
+        </div>
+      </section>
+
       <footer class="closing"><img src="Asset-image/optimized/Moarpictures-01719.jpg" alt="Pranatha dan Stefani" loading="lazy" /><div class="closing-copy"><p>Merupakan kebahagiaan bagi kami apabila Bapak/Ibu/Saudara/i berkenan hadir dan memberikan doa restu.</p><h2>Pranatha<br /><i>&amp;</i> Stefani</h2><small>Terima kasih</small><div class="credits"><span>Web builder by Pranatha</span><a href="https://youtu.be/mKHfq_HIEBU?si=DlFQVvGU0L780H6u" target="_blank" rel="noopener">Music by Yura Yunita — Duhai Sayang</a></div></div></footer>
     </main>
 
@@ -321,6 +346,9 @@
       function clearEventError() { eventAttendanceError.style.display = 'none'; eventInputs.forEach(input => input.removeAttribute('aria-invalid')); }
       eventInputs.forEach(input => input.addEventListener('change', clearEventError));
       rsvpForm.addEventListener('submit', event => { event.preventDefault(); const form = new FormData(event.currentTarget); const selectedEvents = form.getAll('event'); if (!selectedEvents.length) { eventAttendanceError.style.display = 'block'; eventInputs.forEach(input => input.setAttribute('aria-invalid','true')); eventInputs[0].focus(); return; } clearEventError(); const wish = {name:form.get('name').trim(), message:form.get('message').trim(), date:new Intl.DateTimeFormat('id-ID',{day:'numeric',month:'short',year:'numeric'}).format(new Date())}; const wishes = JSON.parse(localStorage.getItem(storageKey) || '[]'); wishes.push(wish); localStorage.setItem(storageKey,JSON.stringify(wishes)); renderWishes(); const selectedMembers = familyMembers.length ? [...document.querySelectorAll('input[name="familyMember"]:checked')].map(input => input.value) : []; const guestCount = selectedMembers.length || 1; const presence = familyMembers.length ? (selectedMembers.length ? `Hadir (${selectedMembers.length} orang):\n${selectedMembers.map(member => `• ${member}`).join('\n')}` : 'Hadir (1 orang)') : 'Hadir (1 orang)'; const attendanceStatus = 'Hadir'; const events = selectedEvents.join(' & '); void fetch(RSVP_ENDPOINT, {method:'POST', mode:'no-cors', headers:{'Content-Type':'application/x-www-form-urlencoded;charset=UTF-8'}, body:new URLSearchParams({name:wish.name, attendance:attendanceStatus, events, ceremony:selectedEvents.includes('Pemberkatan') ? 'Hadir' : 'Tidak hadir', reception:selectedEvents.includes('Resepsi') ? 'Hadir' : 'Tidak hadir', members:selectedMembers.join(', '), count:String(guestCount), message:wish.message, invitationUrl:window.location.href})}).catch(() => {}); const whatsAppMessage = `Halo Pranatha & Stefani,\n\nKonfirmasi kehadiran\nKepada: ${wish.name}\n${presence}\nAcara: ${events}\n\nUcapan & doa:\n${wish.message}\n\nTerima kasih.`; const whatsappUrl = `https://wa.me/628998150133?text=${encodeURIComponent(whatsAppMessage)}`; window.open(whatsappUrl, '_blank', 'noopener'); document.getElementById('rsvpResult').textContent = `Terima kasih, ${wish.name}. Konfirmasi untuk ${events} telah disiapkan di WhatsApp.`; document.getElementById('rsvpResult').style.display = 'block'; event.currentTarget.reset(); if (familyMembers.length) document.querySelector('input[name="familyMember"]').checked = true; if (guest) guestName.value = guest; showToast('Ucapan tersimpan dan WhatsApp dibuka.'); });
+      const giftOpen = document.getElementById('giftOpen'); const giftAccounts = document.getElementById('giftAccounts');
+      giftOpen.addEventListener('click', () => { const isHidden = giftAccounts.hidden; giftAccounts.hidden = !isHidden; giftOpen.setAttribute('aria-expanded', String(isHidden)); giftOpen.textContent = isHidden ? 'Tutup detail hadiah' : 'Buka detail hadiah'; if (isHidden) giftAccounts.scrollIntoView({behavior:'smooth', block:'nearest'}); });
+      document.querySelectorAll('.gift-copy').forEach(button => button.addEventListener('click', async () => { const account = button.dataset.account; try { await navigator.clipboard.writeText(account); showToast('Nomor rekening berhasil disalin.'); } catch { window.prompt('Salin nomor rekening berikut:', account); } }));
       renderWishes();
       const navs = document.querySelectorAll('[data-nav]'); const sections = [...navs].map(link => document.getElementById(link.dataset.nav)); const observer = new IntersectionObserver(entries => entries.forEach(entry => { if (entry.isIntersecting) navs.forEach(link => link.classList.toggle('active', link.dataset.nav === entry.target.id)); }), {rootMargin:'-45% 0px -43%', threshold:0}); sections.forEach(section => observer.observe(section));
     </script>
